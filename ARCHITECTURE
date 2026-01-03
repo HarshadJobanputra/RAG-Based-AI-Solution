@@ -1,0 +1,165 @@
+# System Architecture
+
+## High-Level Overview
+```
+┌──────────────────────────────────────────────────────────────┐
+│                        CLIENT LAYER                          │
+├──────────────────────────────────────────────────────────────┤
+│  Web Browser  │  Mobile App  │  API Client  │  CLI Tool     │
+└────────┬─────────────┬──────────────┬────────────────┬───────┘
+         │             │              │                │
+         └─────────────┴──────────────┴────────────────┘
+                               ↓
+                        HTTPS Request
+                               ↓
+┌──────────────────────────────────────────────────────────────┐
+│                      API GATEWAY LAYER                       │
+├──────────────────────────────────────────────────────────────┤
+│  • REST API Endpoint                                         │
+│  • CORS Configuration                                        │
+│  • Request Validation                                        │
+│  • Rate Limiting (future)                                    │
+└──────────────────────────┬───────────────────────────────────┘
+                           ↓
+                    Lambda Trigger
+                           ↓
+┌──────────────────────────────────────────────────────────────┐
+│                     COMPUTE LAYER (Lambda)                   │
+├──────────────────────────────────────────────────────────────┤
+│                                                              │
+│  ┌────────────────────────────────────────────────────────┐  │
+│  │  1. Request Parser                                     │  │
+│  │     • Extract question & department                    │  │
+│  │     • Validate input                                   │  │
+│  └────────────────────────┬───────────────────────────────┘  │
+│                           ↓                                  │
+│  ┌────────────────────────────────────────────────────────┐  │
+│  │  2. Department Detector                                │  │
+│  │     • Keyword matching                                 │  │
+│  │     • Finance / Legal / Marketing / HR                 │  │
+│  └────────────────────────┬───────────────────────────────┘  │
+│                           ↓                                  │
+│  ┌────────────────────────────────────────────────────────┐  │
+│  │  3. Knowledge Base Retrieval                           │  │
+│  │     • Select department context                        │  │
+│  │     • Prepare relevant policy excerpts                 │  │
+│  └────────────────────────┬───────────────────────────────┘  │
+│                           ↓                                  │
+│  ┌────────────────────────────────────────────────────────┐  │
+│  │  4. Prompt Builder                                     │  │
+│  │     • Combine context + question                       │  │
+│  │     • Format for Llama 3                               │  │
+│  └────────────────────────┬───────────────────────────────┘  │
+│                           ↓                                  │
+└───────────────────────────┼──────────────────────────────────┘
+                            ↓
+                     Bedrock API Call
+                            ↓
+┌──────────────────────────────────────────────────────────────┐
+│                      AI/ML LAYER (Bedrock)                   │
+├──────────────────────────────────────────────────────────────┤
+│                                                              │
+│  ┌────────────────────────────────────────────────────────┐  │
+│  │           Meta Llama 3 70B Instruct                    │  │
+│  │                                                        │  │
+│  │  • Context understanding                               │  │
+│  │  • German language generation                          │  │
+│  │  • Structured output formatting                        │  │
+│  └────────────────────────────────────────────────────────┘  │
+│                                                              │
+└──────────────────────────┬───────────────────────────────────┘
+                           ↓
+                    Generated Answer
+                           ↓
+┌──────────────────────────────────────────────────────────────┐
+│                    RESPONSE FORMATTER                        │
+├──────────────────────────────────────────────────────────────┤
+│  • Add source attribution                                    │
+│  • Include department metadata                               │
+│  • Format as JSON                                            │
+└──────────────────────────┬───────────────────────────────────┘
+                           ↓
+                    JSON Response
+                           ↓
+                       Client
+
+## Data Flow
+```
+Request Flow:
+1. Client → API Gateway (HTTPS POST)
+2. API Gateway → Lambda (Event trigger)
+3. Lambda → Department Detector (Keyword analysis)
+4. Lambda → Knowledge Base (Retrieve context)
+5. Lambda → Bedrock (LLM inference)
+6. Bedrock → Lambda (Generated answer)
+7. Lambda → API Gateway (Formatted response)
+8. API Gateway → Client (JSON response)
+```
+
+## Component Details
+
+### API Gateway
+- **Type**: REST API
+- **Region**: us-east-1
+- **Endpoint**: `/prod/query`
+- **Methods**: POST
+- **CORS**: Enabled (Access-Control-Allow-Origin: *)
+
+### Lambda Function
+- **Runtime**: Python 3.11
+- **Memory**: 512 MB
+- **Timeout**: 30 seconds
+- **Concurrency**: Default (1000)
+- **Cold Start**: ~500-700ms
+- **Warm Start**: ~200-300ms
+
+### AWS Bedrock
+- **Model**: meta.llama3-70b-instruct-v1:0
+- **Max Tokens**: 1024
+- **Temperature**: 0.1
+- **Region**: us-east-1
+
+### IAM Permissions
+```json
+{
+  "Lambda Execution Role": {
+    "AWSLambdaBasicExecutionRole": "CloudWatch Logs",
+    "AmazonBedrockFullAccess": "Bedrock InvokeModel",
+    "AmazonS3ReadOnlyAccess": "S3 read access (future)"
+  }
+}
+```
+
+## Security
+
+- ✅ HTTPS only (TLS 1.2+)
+- ✅ IAM role-based access
+- ✅ No hardcoded credentials
+- ✅ Environment variables for config
+- ⏳ API keys (future)
+- ⏳ Rate limiting (future)
+- ⏳ AWS WAF (future)
+
+## Scalability
+
+| Metric                     | Current          | Max Capacity         |
+|----------------------------|------------------|----------------------|
+| **Concurrent Requests**    | Auto-scales      | 1,000 (default)      |
+| **Requests/Second**        | Auto-scales      | 10,000+              |
+| **Regional Availability**  | us-east-1        | Multi-region capable |
+| **Storage**                | 512 MB ephemeral | 10 GB max            |
+
+## Monitoring
+
+### CloudWatch Metrics
+- Lambda invocations
+- Error rate
+- Duration
+- Concurrent executions
+- Throttles
+
+### Future Enhancements
+- Custom CloudWatch dashboard
+- X-Ray tracing
+- Cost anomaly detection
+- Usage analytics
