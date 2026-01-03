@@ -243,7 +243,7 @@ MIT License - Feel free to use this as a reference for your own projects.
 
 ## 👤 **Author**
 
-**Harshad**  
+**Harshadkumar**  
 Building production-grade AI systems | AWS | Python | RAG
 
 ---
@@ -255,5 +255,3 @@ Building production-grade AI systems | AWS | Python | RAG
 - Anthropic Claude for development assistance
 
 ---
-
-**Built with ❤️ using AWS serverless architecture**
