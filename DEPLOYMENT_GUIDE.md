@@ -74,7 +74,7 @@ aws iam attach-role-policy \
 
 ## Step 5: Deploy Lambda Function
 
-### Option A: AWS Console (Recommended for First Time)
+### Option A: AWS Console
 
 1. **Go to Lambda Console** → Create function
 2. **Configuration:**
@@ -209,8 +209,6 @@ if any(w in q for w in ['your', 'keywords', 'here']):
 
 1. **Never commit AWS credentials**
    - Use IAM roles
-   - Use environment variables
-   - Add `.env` to `.gitignore`
 
 2. **Enable API Gateway authentication**
    - Add API keys
@@ -241,12 +239,12 @@ if any(w in q for w in ['your', 'keywords', 'here']):
 
 ## Next Steps
 
-- [ ] Add authentication (API keys)
-- [ ] Implement FAISS vector search
-- [ ] Build web UI
-- [ ] Add monitoring dashboard
-- [ ] Set up CI/CD pipeline
-- [ ] Enable multi-region deployment
+- Add authentication (API keys)
+- Implement FAISS vector search
+- Build web UI
+- Add monitoring dashboard
+- Set up CI/CD pipeline
+- Enable multi-region deployment
 
 ---
 
@@ -256,9 +254,7 @@ For issues or questions:
 - Check CloudWatch Logs first
 - Review AWS service quotas
 - Consult AWS documentation
-- Open GitHub issue (if applicable)
 
 ---
 
-**Estimated Deployment Time:** 30-45 minutes  
-**Estimated Monthly Cost:** $5-10 (for testing/demo usage)
+**Estimated Monthly Cost:** €5-10 (for testing/demo usage)
