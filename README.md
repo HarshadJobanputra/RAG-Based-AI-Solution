@@ -1,4 +1,4 @@
-# RAG-based-AI-Solution
+# RAG-Based-AI-Solution
 Production-grade RAG system for German policy Q&A using AWS Lambda, Bedrock (Llama 3) and API Gateway
 
 # Enterprise RAG System for German Policy Documents
