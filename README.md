@@ -15,13 +15,6 @@ Production-grade RAG system for German policy Q&A using AWS Lambda, Bedrock (Lla
 
 An AI based Q&A system that answers questions about company policies in German, automatically detecting the relevant department and providing accurate, sourced responses using AWS Bedrock's Llama 3 70B model.
 
-### **Live Demo**
-```bash
-curl -X POST https://idutah47qk.execute-api.us-east-1.amazonaws.com/prod/query \
-  -H "Content-Type: application/json" \
-  -d '{"question": "Was sagt die Reisekostenrichtlinie?"}'
-```
-
 ---
 
 ## **Architecture**
