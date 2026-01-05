@@ -1,5 +1,5 @@
 # RAG-based-AI-Solution
-Enterprise RAG System for Germanz based Company Policy Documents
+Enterprise RAG (Retrieval-Augmented Generation) system for company policy Q&A.
 
 # Enterprise RAG System for German Policy Documents
 
@@ -8,7 +8,7 @@ Enterprise RAG System for Germanz based Company Policy Documents
 ![System Status](https://img.shields.io/badge/status-production-success)
 ![AWS](https://img.shields.io/badge/AWS-Lambda%20%7C%20Bedrock%20%7C%20API%20Gateway-orange)
 ![Python](https://img.shields.io/badge/python-3.11-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 
 ## 🎯 **Project Overview**
