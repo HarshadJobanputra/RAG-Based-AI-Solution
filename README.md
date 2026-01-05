@@ -11,9 +11,9 @@ Enterprise RAG (Retrieval-Augmented Generation) system for company policy Q&A.
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 
-## 🎯 **Project Overview**
+## **Project Overview**
 
-An intelligent Q&A system that answers questions about company policies in German, automatically detecting the relevant department and providing accurate, sourced responses using AWS Bedrock's Llama 3 70B model.
+An AI based Q&A system that answers questions about company policies in German, automatically detecting the relevant department and providing accurate, sourced responses using AWS Bedrock's Llama 3 70B model.
 
 ### **Live Demo**
 ```bash
@@ -24,7 +24,7 @@ curl -X POST https://idutah47qk.execute-api.us-east-1.amazonaws.com/prod/query \
 
 ---
 
-## 🏗️ **Architecture**
+## **Architecture**
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                   User Query (HTTPS)                    │
@@ -57,62 +57,51 @@ curl -X POST https://idutah47qk.execute-api.us-east-1.amazonaws.com/prod/query \
         └────────────────────────────┘
 
 
-## ✨ **Key Features**
+Key Features:
 
-    ### **Intelligent Routing**
-    - 🎯 Automatic department detection (Finance, Legal, Marketing, HR)
-    - 🔍 Context-aware retrieval
-    - 📊 Source attribution with document references
-    
-    ### **Production-Ready**
-    - ⚡ Serverless architecture (auto-scaling)
-    - 🔒 HTTPS API endpoint with CORS
-    - 📈 Sub-500ms response time
-    - 💰 Cost-optimized (<$5/month for testing)
-    
-    ### **Multilingual Support**
-    - 🇩🇪 Native German language processing
-    - 🌍 English query support
-    - 📝 Structured bullet-point responses
+Intelligent Routing
+- Automatic department detection (Finance, Legal, Marketing, HR)
+- Context-aware retrieval
+- Source attribution with document references
 
-## 🛠️ **Tech Stack**
+Production-Ready
+- Serverless architecture (auto-scaling)
+- HTTPS API endpoint with CORS
+- Sub-500ms response time
+- Cost-optimized (<$5/month for testing)
 
-| Component         | Technology                 | Purpose                       |
-|-------------------|----------------------------|-------------------------------|
-| **Compute**       | AWS Lambda (Python 3.11)   | Serverless function execution |
-| **API**           | AWS API Gateway            | REST API management           |
-| **LLM**           | AWS Bedrock (Llama 3 70B)  | Answer generation             |
-| **Storage**       | Amazon S3                  | Document storage              |
-| **IAM**           | AWS IAM Roles              | Security & permissions        |
+Multilingual Support
+- Native German language processing
+- English query support
+- Structured bullet-point responses
 
----
+Tech Stack
 
-## 📊 **Supported Departments**
-
-| Department       | Coverage                                 | Example Queries                    |
-|------------------|------------------------------------------|------------------------------------|
-| **Finance**      | Travel expenses, budgets, reimbursements | "Wie viel kostet ein Hotel?"       |
-| **Legal**        | GDPR, compliance, contracts              | "Welche Datenschutzregeln gelten?" |
-| **Marketing**    | Branding, social media, CI/CD            | "Welche Farben hat unsere Marke?"  |
-| **HR**           | Vacation, onboarding, benefits           | "Wie viel Urlaub steht mir zu?"    |
+| Component     | Technology                 | Purpose                       |
+|---------------|----------------------------|-------------------------------|
+| Compute       | AWS Lambda (Python 3.11)   | Serverless function execution |
+| API           | AWS API Gateway            | REST API management           |
+| LLM           | AWS Bedrock (Llama 3 70B)  | Answer generation             |
+| Storage       | Amazon S3                  | Document storage              |
+| IAM           | AWS IAM Roles              | Security & permissions        |
 
 ---
 
-## 🚀 **API Usage**
+API Usage
 
-    ### **Endpoint**
+  Endpoint
     ```
     POST https://idutah47qk.execute-api.us-east-1.amazonaws.com/prod/query
     ```
     
-    ### **Request**
+  Request
     ```json
     {
       "question": "Was sagt die Reisekostenrichtlinie?",
       "department": "Finance"  // Optional
     }
 
-### **Response**
+Response
 ```json
 {
   "answer": "Die Reisekostenrichtlinie regelt:\n\n• Privat-PKW: 0,30 € pro km...",
@@ -129,15 +118,14 @@ curl -X POST https://idutah47qk.execute-api.us-east-1.amazonaws.com/prod/query \
 
 ### **Example Usage**
 
-    #### PowerShell
-    ```powershell
+PowerShell
+
     $body = @{question = "Wie viel kostet ein Hotel?"} | ConvertTo-Json
     Invoke-RestMethod -Uri "https://idutah47qk.execute-api.us-east-1.amazonaws.com/prod/query" `
       -Method POST -Body $body -ContentType "application/json"
-    ```
     
-    #### Python
-    ```python
+Python
+
     import requests
     
     response = requests.post(
@@ -147,8 +135,8 @@ curl -X POST https://idutah47qk.execute-api.us-east-1.amazonaws.com/prod/query \
     print(response.json()["answer"])
     ```
     
-    #### JavaScript
-    ```javascript
+JavaScript
+
     const response = await fetch(
       'https://idutah47qk.execute-api.us-east-1.amazonaws.com/prod/query',
       {
@@ -162,11 +150,11 @@ curl -X POST https://idutah47qk.execute-api.us-east-1.amazonaws.com/prod/query \
 
 ---
 
-## 📈 **Performance Metrics**
+## **Performance Metrics**
 
 | Metric             | Value                                           |
 |--------------------|-------------------------------------------------|
-| **Response Time**  | 200-500ms                                       |
+| **Response Time**  | 2-5 seconds                                     |
 | **Accuracy**       | 95%+ for department-specific queries            |
 | **Availability**   | 99.9% (AWS SLA)                                 |
 | **Cost**           | ~$0.50 per 1,000 requests                       |
@@ -174,7 +162,7 @@ curl -X POST https://idutah47qk.execute-api.us-east-1.amazonaws.com/prod/query \
 
 ---
 
-## 💰 **Cost Breakdown**
+## **Cost Breakdown**
 
 | Service             | Cost per 1,000 Requests | Monthly (10K req) |
 |---------------------|-------------------------|-------------------|
@@ -186,69 +174,69 @@ curl -X POST https://idutah47qk.execute-api.us-east-1.amazonaws.com/prod/query \
 
 ---
 
-## 🎓 **Learning Outcomes**
+## **Learning Outcomes**
 
 Through this project, I gained hands-on experience with:
 
-- ✅ **RAG Architecture**: Implementing retrieval-augmented generation patterns
-- ✅ **AWS Serverless**: Lambda functions, API Gateway, IAM roles
-- ✅ **LLM Integration**: Working with AWS Bedrock and Llama 3
-- ✅ **Production Deployment**: CORS, error handling, monitoring
-- ✅ **Cost Optimization**: Serverless architecture for minimal costs
-- ✅ **German NLP**: Multilingual query processing
+-  **RAG Architecture**: Implementing retrieval-augmented generation patterns
+-  **AWS Serverless**: Lambda functions, API Gateway, IAM roles
+-  **LLM Integration**: Working with AWS Bedrock and Llama 3
+-  **Production Deployment**: CORS, error handling, monitoring
+-  **Cost Optimization**: Serverless architecture for minimal costs
+-  **German NLP**: Multilingual query processing
 
 ---
 
-## 🔮 **Future Enhancements**
+## **Future Enhancements**
 
-- [ ] Add FAISS vector search for dynamic document updates
-- [ ] Implement conversation memory for multi-turn dialogues
-- [ ] Build web UI with React
-- [ ] Add API authentication (API keys)
-- [ ] Integrate CloudWatch monitoring dashboards
-- [ ] Add rate limiting and usage quotas
-- [ ] Support additional languages (English, French)
-- [ ] Create Slack/Teams bot integration
+- Add FAISS vector search for dynamic document updates
+- Implement conversation memory for multi-turn dialogues
+- Build web UI with React
+- Add API authentication (API keys)
+- Integrate CloudWatch monitoring dashboards
+- Add rate limiting and usage quotas
+- Support additional languages (English, French)
+- Create Slack/Teams bot integration
 
 ---
 
-## 📝 **Project Structure**
+## **Project Structure**
 ```
 RAG-with-multiple-documents/
-├── data_ingestion/
-│   ├── process_documents.py      # Document processing & FAISS indexing
-│   └── test_documents/            # Sample German policy PDFs
-├── query_interface/
-│   └── query_rag.py               # Local testing interface
-├── lambda_deployment/
-│   └── lambda_function.py         # Production Lambda code
-├── faiss_indexes/
-│   └── company_policies/          # Vector index storage
-└── README.md
+── data_ingestion/
+   ── process_documents.py      # Document processing & FAISS indexing
+   ── test_documents/            # Sample German policy PDFs
+── query_interface/
+   ── query_rag.py               # Local testing interface
+── lambda_deployment/
+   ── lambda_function.py         # Production Lambda code
+── faiss_indexes/
+   ── company_policies/          # Vector index storage
+── README.md
 ```
 
 ---
 
-## 🤝 **Contributing**
+## **Contributing**
 
 This is a portfolio project, but suggestions and feedback are welcome!
 
 ---
 
-## 📄 **License**
+## **License**
 
 MIT License - Feel free to use this as a reference for your own projects.
 
 ---
 
-## 👤 **Author**
+## **Author**
 
 **Harshadkumar**  
 Building production-grade AI systems | AWS | Python | RAG
 
 ---
 
-## 🙏 **Acknowledgments**
+## **Acknowledgments**
 
 - AWS Bedrock team for Llama 3 access
 - LangChain community for RAG patterns
