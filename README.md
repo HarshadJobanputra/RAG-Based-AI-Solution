@@ -70,6 +70,7 @@ Multilingual Support
 
 Tech Stack
 
+
 | Component     | Technology                 | Purpose                       |
 |---------------|----------------------------|-------------------------------|
 | Compute       | AWS Lambda (Python 3.11)   | Serverless function execution |
