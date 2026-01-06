@@ -1,7 +1,7 @@
 # RAG-Based-AI-Solution
 Production-grade RAG system for German policy Q&A using AWS Lambda, Bedrock (Llama 3) and API Gateway
 
-# Enterprise RAG System for German Policy Documents
+# Enterprise RAG System for Company Policy Documents
 
 > Production-grade Retrieval-Augmented Generation (RAG) system built on AWS serverless architecture, enabling natural language querying of company policies across multiple departments.
 
