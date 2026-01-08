@@ -18,7 +18,7 @@ An AI based Q&A system that answers questions about company policies in German, 
 ---
 
 ## **Architecture**
-```
+---
                               ┌─────────────────────────────────────────────────────────┐
                               │                   User Query (HTTPS)                    │
                               └────────────────────────────┬────────────────────────────┘
@@ -68,6 +68,7 @@ Multilingual Support
 - English query support
 - Structured bullet-point responses
 
+---
 Tech Stack
 
 
