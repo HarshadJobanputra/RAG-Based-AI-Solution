@@ -21,7 +21,7 @@ Production-grade Retrieval-Augmented Generation (RAG) system built on AWS server
 - **35% accuracy improvement** (60% → 95%)
 - **Sub-5 second response time** for policy queries
 - **Multilingual support** (English/German)
-- **10 departments** with 50+ policy documents
+- **Policy documents of 10 departments** 
 - **Cost-effective:** €4.50/month for 10K queries
 
 ---
