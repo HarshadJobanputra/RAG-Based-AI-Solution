@@ -280,7 +280,7 @@ MAX_CONTEXT_CHARS = 6000 # Maximum context length
 
 **Cost per query:** €0.00045
 
-**(Note: This is approximate amount based on the file size, number of documents and other parameters. It could be more or less as per the usecase)**
+**(Note: This is approximate amount based on the file size, number of documents and other parameters. It could be more or less as per the use case)**
 ---
 
 ## Learning
