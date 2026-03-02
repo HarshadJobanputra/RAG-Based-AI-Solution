@@ -66,7 +66,7 @@ Production-grade Retrieval-Augmented Generation (RAG) system built on AWS server
 - Python 3.11
 
 ---
-## 📊 Performance Metrics
+## Performance Metrics
 
 | Metric | Keyword Search (Old) | FAISS + Reranking (New) | Improvement |
 |--------|---------------------|------------------------|-------------|
@@ -77,11 +77,11 @@ Production-grade Retrieval-Augmented Generation (RAG) system built on AWS server
 | **Context Size** | 10,000+ chars | 6,000 chars | -40% |
 | **Cost (10K queries)** | €2.00 | €4.50 | +€2.50 |
 
-**ROI:** 35% accuracy improvement for $2.50/month additional cost.
+**ROI:** 35% accuracy improvement for a €2.50/month additional cost.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 ### 1. Semantic Search
 - Vector embeddings capture meaning, not just keywords
@@ -111,7 +111,7 @@ Production-grade Retrieval-Augmented Generation (RAG) system built on AWS server
 
 ---
 
- 📝 Usage
+  Usage
 
 ### 1. Process Documents
 
@@ -209,7 +209,7 @@ curl -X POST https://API_URL/query \
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ### Test Queries
 
@@ -238,7 +238,7 @@ python tests/test_queries.py
 
 ---
 
-## 🔧 Configuration
+## Configuration
 
 ### Department Mapping
 | Prefix | Department | Document Types |
@@ -264,7 +264,7 @@ MAX_CONTEXT_CHARS = 6000 # Maximum context length
 
 ---
 
-## 💰 Cost Analysis
+## Cost Analysis
 
 ### Monthly Costs (10,000 queries)
 
@@ -283,8 +283,7 @@ MAX_CONTEXT_CHARS = 6000 # Maximum context length
 **(Note: This is approximate amount based on the file size, number of documents and other parameters. It could be more or less as per the usecase)**
 ---
 
-## 🎓 Lessons Learned
-
+## Learning
 ### What Worked Well
 1. **FAISS for semantic search** - Dramatically improved accuracy over keywords
 2. **Cross-encoder reranking** - Worth the extra latency for accuracy boost
@@ -320,28 +319,28 @@ MAX_CONTEXT_CHARS = 6000 # Maximum context length
 | FAISS Search | 50ms | In-memory index |
 | Reranking | 300ms | CPU-bound operation |
 | LLM Generation | 800ms | Bedrock API call |
-| **Total (warm)** | **1.4s** | ✅ Target met |
+| **Total (warm)** | **1.4s** | Target met |
 
 ### Memory Usage
 - FAISS Index: ~500 MB
 - Python Runtime: ~200 MB
 - Dependencies: ~800 MB
-- **Peak Usage:** ~1.5 GB / 2 GB allocated ✅
+- **Peak Usage:** ~1.5 GB / 2 GB allocated
 
 ---
 
-## 🔒 Security & Compliance
+## Security & Compliance
 
-- ✅ AWS IAM roles with least-privilege access
-- ✅ Encrypted data at rest (S3, Lambda)
-- ✅ Encrypted data in transit (TLS 1.2+)
-- ✅ No PII stored in logs
-- ✅ Bedrock model inference remains in AWS
-- ✅ GDPR-compliant data handling
+- AWS IAM roles with least-privilege access
+- Encrypted data at rest (S3, Lambda)
+- Encrypted data in transit (TLS 1.2+)
+- No PII stored in logs
+- Bedrock model inference remains in AWS
+- GDPR-compliant data handling
 
 ---
 
-## 📚 References & Resources
+## References & Resources
 
 ### Papers & Research
 - FAISS: A Library for Efficient Similarity Search
@@ -355,7 +354,7 @@ MAX_CONTEXT_CHARS = 6000 # Maximum context length
 
 ---
 
-## 👤 Author
+## Author
 
 **Harshadkumar Jobanputra**
 ---
@@ -363,14 +362,5 @@ MAX_CONTEXT_CHARS = 6000 # Maximum context length
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-## Acknowledgments
-
-- Amazon Web Services for Bedrock platform
-- Meta for Llama 3 model
-- Anthropic for Claude assistance
-- Facebook AI Research for FAISS
 
 ---
